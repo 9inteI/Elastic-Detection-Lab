@@ -1,0 +1,46 @@
+---
+# Filebeat ships the raw synthetic logs into Elasticsearch.
+# Structured ECS documents (what the detection rules match on) are indexed
+# by `make seed` (scripts/seed.py); this shipper demonstrates the classic
+# beats pipeline and keeps raw copies searchable under filebeat-*.
+
+filebeat.inputs:
+  - type: filestream
+    id: linux-auth
+    paths:
+      - /var/log/sample-logs/auth.log
+    tags: ["linux", "auth"]
+    fields:
+      event.dataset: system.auth
+    fields_under_root: true
+
+  - type: filestream
+    id: nginx-access
+    paths:
+      - /var/log/sample-logs/nginx-access.log
+    tags: ["nginx", "web"]
+    fields:
+      event.dataset: nginx.access
+    fields_under_root: true
+
+  - type: filestream
+    id: windows-security
+    paths:
+      - /var/log/sample-logs/windows-security.json
+    tags: ["windows", "security"]
+    parsers:
+      - ndjson:
+          target: ""
+          add_error_key: true
+    fields:
+      event.dataset: windows.security
+    fields_under_root: true
+
+output.elasticsearch:
+  hosts: ["http://elasticsearch:9200"]
+  username: "elastic"
+  password: "${ELASTIC_PASSWORD}"
+
+setup.ilm.enabled: false
+setup.template.name: "filebeat"
+setup.template.pattern: "filebeat-*"

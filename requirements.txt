@@ -1,0 +1,4 @@
+elasticsearch>=8.14,<9
+requests>=2.32
+rich>=13.7
+pytest>=8.2

@@ -1,0 +1,57 @@
+{
+  "rule_id": "edl-006-new-admin-account",
+  "version": 1,
+  "name": "EDL-006 New Admin Account Creation",
+  "description": "EQL sequence: a user account is created (Windows event 4720) and shortly afterwards a member is added to a security-enabled local group (event 4732, e.g. Administrators) by the same subject. Creating an account and immediately granting it admin rights is a hallmark of attacker persistence.",
+  "author": ["elastic-detection-lab"],
+  "type": "eql",
+  "language": "eql",
+  "index": ["logs-edl.windows*", "filebeat-*"],
+  "query": "sequence by winlog_event_data.SubjectUserName with maxspan=15m [iam where event.code == \"4720\"] [iam where event.code == \"4732\"]",
+  "severity": "critical",
+  "risk_score": 92,
+  "interval": "1m",
+  "from": "now-6h",
+  "to": "now",
+  "enabled": true,
+  "max_signals": 100,
+  "tags": ["Windows", "Persistence", "elastic-detection-lab"],
+  "references": [
+    "https://attack.mitre.org/techniques/T1136/001/",
+    "https://attack.mitre.org/techniques/T1098/"
+  ],
+  "false_positives": [
+    "IT onboarding workflows that create admin accounts programmatically (allowlist the automation's subject account)."
+  ],
+  "threat": [
+    {
+      "framework": "MITRE ATT&CK",
+      "tactic": {
+        "id": "TA0003",
+        "name": "Persistence",
+        "reference": "https://attack.mitre.org/tactics/TA0003/"
+      },
+      "technique": [
+        {
+          "id": "T1136",
+          "name": "Create Account",
+          "reference": "https://attack.mitre.org/techniques/T1136/",
+          "subtechnique": [
+            {
+              "id": "T1136.001",
+              "name": "Local Account",
+              "reference": "https://attack.mitre.org/techniques/T1136/001/"
+            }
+          ]
+        },
+        {
+          "id": "T1098",
+          "name": "Account Manipulation",
+          "reference": "https://attack.mitre.org/techniques/T1098/"
+        }
+      ]
+    }
+  ],
+  "actions": [],
+  "exceptions_list": []
+}

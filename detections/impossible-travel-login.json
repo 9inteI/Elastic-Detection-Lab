@@ -1,0 +1,45 @@
+{
+  "rule_id": "edl-002-impossible-travel",
+  "version": 1,
+  "name": "EDL-002 Impossible Travel Login",
+  "description": "Flags a successful login for a user from a source country not seen for that user in the previous 7 days. Combined with the short rule window, a user appearing in two distant countries within minutes is physically impossible travel and suggests stolen credentials or session hijacking.",
+  "author": ["elastic-detection-lab"],
+  "type": "new_terms",
+  "language": "kuery",
+  "index": ["logs-edl.windows*", "filebeat-*"],
+  "query": "event.code:4624 and event.outcome:success and source.geo.country_name:*",
+  "new_terms_fields": ["user.name", "source.geo.country_name"],
+  "history_window_start": "now-7d",
+  "severity": "high",
+  "risk_score": 70,
+  "interval": "1m",
+  "from": "now-6h",
+  "to": "now",
+  "enabled": true,
+  "max_signals": 100,
+  "tags": ["Windows", "Identity", "Initial Access", "elastic-detection-lab"],
+  "references": ["https://attack.mitre.org/techniques/T1078/"],
+  "false_positives": [
+    "Legitimate travel or first login through a new VPN egress point.",
+    "Mobile carriers routing traffic through out-of-country gateways."
+  ],
+  "threat": [
+    {
+      "framework": "MITRE ATT&CK",
+      "tactic": {
+        "id": "TA0001",
+        "name": "Initial Access",
+        "reference": "https://attack.mitre.org/tactics/TA0001/"
+      },
+      "technique": [
+        {
+          "id": "T1078",
+          "name": "Valid Accounts",
+          "reference": "https://attack.mitre.org/techniques/T1078/"
+        }
+      ]
+    }
+  ],
+  "actions": [],
+  "exceptions_list": []
+}

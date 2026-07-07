@@ -1,0 +1,55 @@
+{
+  "rule_id": "edl-001-ssh-brute-force",
+  "version": 1,
+  "name": "EDL-001 SSH Brute Force Attempts",
+  "description": "Detects 10 or more failed SSH password attempts from a single source IP within a 10-minute window, indicating password guessing / credential stuffing against the SSH service.",
+  "author": ["elastic-detection-lab"],
+  "type": "threshold",
+  "language": "kuery",
+  "index": ["logs-edl.auth*", "filebeat-*"],
+  "query": "event.dataset:system.auth and event.action:ssh_login and event.outcome:failure",
+  "threshold": {
+    "field": ["source.ip"],
+    "value": 10,
+    "cardinality": [{ "field": "user.name", "value": 2 }]
+  },
+  "severity": "high",
+  "risk_score": 73,
+  "interval": "1m",
+  "from": "now-6h",
+  "to": "now",
+  "enabled": true,
+  "max_signals": 100,
+  "tags": ["Linux", "SSH", "Credential Access", "elastic-detection-lab"],
+  "references": ["https://attack.mitre.org/techniques/T1110/001/"],
+  "false_positives": [
+    "Misconfigured monitoring or automation retrying with a bad key/password.",
+    "Vulnerability scanners running authorized credential audits."
+  ],
+  "threat": [
+    {
+      "framework": "MITRE ATT&CK",
+      "tactic": {
+        "id": "TA0006",
+        "name": "Credential Access",
+        "reference": "https://attack.mitre.org/tactics/TA0006/"
+      },
+      "technique": [
+        {
+          "id": "T1110",
+          "name": "Brute Force",
+          "reference": "https://attack.mitre.org/techniques/T1110/",
+          "subtechnique": [
+            {
+              "id": "T1110.001",
+              "name": "Password Guessing",
+              "reference": "https://attack.mitre.org/techniques/T1110/001/"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "actions": [],
+  "exceptions_list": []
+}

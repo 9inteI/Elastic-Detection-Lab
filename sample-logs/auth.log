@@ -1,0 +1,139 @@
+Jul  6 08:03:22 web-01 sudo: alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/journalctl -u nginx
+Jul  6 08:07:14 web-01 sshd[3714]: Accepted publickey for svc_backup from 10.20.30.28 port 63982 ssh2: RSA SHA256:6f4f90567f048248
+Jul  6 08:12:00 web-01 sudo: alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/journalctl -u nginx
+Jul  6 08:13:32 web-01 sshd[2942]: Accepted publickey for alice from 10.20.30.36 port 51572 ssh2: RSA SHA256:196f581edb233a04
+Jul  6 08:14:49 web-01 sshd[5668]: Accepted publickey for bob from 10.20.30.16 port 43427 ssh2: RSA SHA256:d593a8f3da95e83c
+Jul  6 08:16:10 web-01 sudo: bob : TTY=pts/0 ; PWD=/home/bob ; USER=root ; COMMAND=/usr/bin/journalctl -u nginx
+Jul  6 08:18:58 web-01 sshd[8457]: Accepted publickey for alice from 10.20.30.33 port 56209 ssh2: RSA SHA256:9a2248564e598fb1
+Jul  6 08:24:17 web-01 sshd[7996]: Accepted publickey for alice from 10.20.30.27 port 44913 ssh2: RSA SHA256:f58ae9a10d44edc0
+Jul  6 08:29:35 web-01 sshd[6468]: Accepted publickey for bob from 10.20.30.17 port 63311 ssh2: RSA SHA256:0d630c15fa34e926
+Jul  6 08:29:40 web-01 sudo: alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/journalctl -u nginx
+Jul  6 08:34:25 web-01 sshd[7210]: Accepted publickey for carol from 10.20.30.38 port 54420 ssh2: RSA SHA256:903e5051ab81789a
+Jul  6 08:41:52 web-01 sshd[2862]: Accepted publickey for bob from 10.20.30.30 port 54559 ssh2: RSA SHA256:4e15ffe944c64a2e
+Jul  6 08:44:33 web-01 sudo: bob : TTY=pts/0 ; PWD=/home/bob ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Jul  6 08:50:49 web-01 sshd[9010]: Accepted publickey for alice from 10.20.30.39 port 61276 ssh2: RSA SHA256:85a6c64561646a06
+Jul  6 08:54:42 web-01 sshd[5903]: Accepted publickey for alice from 10.20.30.32 port 40502 ssh2: RSA SHA256:47cdb283d8ad6f21
+Jul  6 08:56:57 web-01 sshd[3230]: Accepted publickey for alice from 10.20.30.37 port 61282 ssh2: RSA SHA256:f3a849a2b40e2e5a
+Jul  6 08:58:42 web-01 sudo: bob : TTY=pts/0 ; PWD=/home/bob ; USER=root ; COMMAND=/usr/bin/apt update
+Jul  6 09:03:03 web-01 sshd[6282]: Accepted publickey for dave from 10.20.30.21 port 41267 ssh2: RSA SHA256:a3b67f001a97d0b2
+Jul  6 09:06:44 web-01 sshd[2317]: Accepted publickey for dave from 10.20.30.17 port 59757 ssh2: RSA SHA256:920092e54e98f9af
+Jul  6 09:11:25 web-01 sshd[1446]: Accepted publickey for alice from 10.20.30.38 port 57646 ssh2: RSA SHA256:5a50a09a30193329
+Jul  6 09:11:30 web-01 sshd[6950]: Failed password for alice from 10.20.30.38 port 59171 ssh2
+Jul  6 09:11:42 web-01 sudo: bob : TTY=pts/0 ; PWD=/home/bob ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Jul  6 09:18:45 web-01 sshd[2764]: Accepted publickey for alice from 10.20.30.14 port 44789 ssh2: RSA SHA256:d3cd70ffd78e2b81
+Jul  6 09:21:36 web-01 sshd[3672]: Accepted publickey for bob from 10.20.30.38 port 44757 ssh2: RSA SHA256:c4a6bdb23309b65f
+Jul  6 09:23:34 web-01 sshd[6192]: Accepted publickey for bob from 10.20.30.13 port 49700 ssh2: RSA SHA256:e88ef54232af7808
+Jul  6 09:26:25 web-01 sudo: alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/journalctl -u nginx
+Jul  6 09:30:25 web-01 sshd[9477]: Accepted publickey for bob from 10.20.30.29 port 52308 ssh2: RSA SHA256:413825d24339305c
+Jul  6 09:33:37 web-01 sshd[5434]: Accepted publickey for carol from 10.20.30.30 port 58604 ssh2: RSA SHA256:5ebcf024258426e0
+Jul  6 09:39:51 web-01 sudo: bob : TTY=pts/0 ; PWD=/home/bob ; USER=root ; COMMAND=/usr/bin/apt update
+Jul  6 09:43:22 web-01 sshd[2676]: Accepted publickey for dave from 10.20.30.34 port 41000 ssh2: RSA SHA256:a36dba998932a5fc
+Jul  6 09:46:32 web-01 sudo: bob : TTY=pts/0 ; PWD=/home/bob ; USER=root ; COMMAND=/usr/bin/apt update
+Jul  6 09:48:35 web-01 sshd[5972]: Accepted publickey for carol from 10.20.30.29 port 63290 ssh2: RSA SHA256:989065a3780014d5
+Jul  6 09:56:27 web-01 sshd[6579]: Accepted publickey for carol from 10.20.30.34 port 59472 ssh2: RSA SHA256:eca4faed1baad33e
+Jul  6 10:00:03 web-01 sshd[3299]: Failed password for svc_backup from 203.0.113.66 port 50000 ssh2
+Jul  6 10:00:04 web-01 sshd[7169]: Failed password for invalid user test from 203.0.113.66 port 50001 ssh2
+Jul  6 10:00:07 web-01 sshd[4804]: Failed password for root from 203.0.113.66 port 50002 ssh2
+Jul  6 10:00:08 web-01 sshd[4169]: Failed password for root from 203.0.113.66 port 50003 ssh2
+Jul  6 10:00:10 web-01 sshd[5183]: Failed password for svc_backup from 203.0.113.66 port 50004 ssh2
+Jul  6 10:00:14 web-01 sshd[3959]: Failed password for invalid user oracle from 203.0.113.66 port 50005 ssh2
+Jul  6 10:00:15 web-01 sshd[3413]: Failed password for root from 203.0.113.66 port 50006 ssh2
+Jul  6 10:00:18 web-01 sshd[9057]: Failed password for invalid user admin from 203.0.113.66 port 50007 ssh2
+Jul  6 10:00:20 web-01 sshd[3820]: Failed password for invalid user test from 203.0.113.66 port 50008 ssh2
+Jul  6 10:00:21 web-01 sshd[9142]: Failed password for invalid user oracle from 203.0.113.66 port 50009 ssh2
+Jul  6 10:00:25 web-01 sshd[9756]: Failed password for invalid user oracle from 203.0.113.66 port 50010 ssh2
+Jul  6 10:00:26 web-01 sshd[8593]: Failed password for invalid user test from 203.0.113.66 port 50011 ssh2
+Jul  6 10:00:30 web-01 sshd[2093]: Failed password for invalid user test from 203.0.113.66 port 50012 ssh2
+Jul  6 10:00:33 web-01 sshd[8838]: Failed password for root from 203.0.113.66 port 50013 ssh2
+Jul  6 10:00:34 web-01 sshd[2833]: Failed password for root from 203.0.113.66 port 50014 ssh2
+Jul  6 10:00:37 web-01 sshd[5242]: Failed password for invalid user test from 203.0.113.66 port 50015 ssh2
+Jul  6 10:00:40 web-01 sshd[1538]: Failed password for svc_backup from 203.0.113.66 port 50016 ssh2
+Jul  6 10:00:43 web-01 sshd[4003]: Failed password for svc_backup from 203.0.113.66 port 50017 ssh2
+Jul  6 10:00:45 web-01 sshd[2751]: Failed password for root from 203.0.113.66 port 50018 ssh2
+Jul  6 10:00:48 web-01 sshd[8913]: Failed password for root from 203.0.113.66 port 50019 ssh2
+Jul  6 10:00:51 web-01 sshd[2986]: Failed password for invalid user oracle from 203.0.113.66 port 50020 ssh2
+Jul  6 10:00:55 web-01 sshd[1933]: Failed password for invalid user test from 203.0.113.66 port 50021 ssh2
+Jul  6 10:00:59 web-01 sshd[3091]: Failed password for root from 203.0.113.66 port 50022 ssh2
+Jul  6 10:01:01 web-01 sshd[8651]: Failed password for root from 203.0.113.66 port 50023 ssh2
+Jul  6 10:01:04 web-01 sshd[3046]: Failed password for root from 203.0.113.66 port 50024 ssh2
+Jul  6 10:01:08 web-01 sshd[4366]: Failed password for invalid user admin from 203.0.113.66 port 50025 ssh2
+Jul  6 10:01:10 web-01 sshd[1401]: Failed password for root from 203.0.113.66 port 50026 ssh2
+Jul  6 10:01:11 web-01 sshd[9256]: Failed password for invalid user oracle from 203.0.113.66 port 50027 ssh2
+Jul  6 10:01:12 web-01 sshd[4308]: Failed password for invalid user oracle from 203.0.113.66 port 50028 ssh2
+Jul  6 10:01:13 web-01 sshd[8313]: Failed password for invalid user test from 203.0.113.66 port 50029 ssh2
+Jul  6 10:01:14 web-01 sshd[7562]: Failed password for root from 203.0.113.66 port 50030 ssh2
+Jul  6 10:01:16 web-01 sshd[4039]: Failed password for invalid user test from 203.0.113.66 port 50031 ssh2
+Jul  6 10:01:18 web-01 sshd[3738]: Failed password for invalid user test from 203.0.113.66 port 50032 ssh2
+Jul  6 10:01:21 web-01 sshd[9873]: Failed password for invalid user test from 203.0.113.66 port 50033 ssh2
+Jul  6 10:01:24 web-01 sshd[8147]: Failed password for invalid user test from 203.0.113.66 port 50034 ssh2
+Jul  6 10:01:27 web-01 sudo: alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Jul  6 10:01:28 web-01 sshd[2915]: Failed password for svc_backup from 203.0.113.66 port 50035 ssh2
+Jul  6 10:01:31 web-01 sshd[8030]: Failed password for root from 203.0.113.66 port 50036 ssh2
+Jul  6 10:01:35 web-01 sshd[9285]: Failed password for invalid user admin from 203.0.113.66 port 50037 ssh2
+Jul  6 10:01:38 web-01 sshd[7325]: Failed password for invalid user test from 203.0.113.66 port 50038 ssh2
+Jul  6 10:01:41 web-01 sshd[7028]: Failed password for svc_backup from 203.0.113.66 port 50039 ssh2
+Jul  6 10:01:44 web-01 sshd[9192]: Accepted publickey for svc_backup from 203.0.113.66 port 50101 ssh2: RSA SHA256:aad2624f2fedb89c
+Jul  6 10:02:55 web-01 sudo: svc_backup : TTY=pts/2 ; PWD=/tmp ; USER=root ; COMMAND=/bin/bash
+Jul  6 10:03:33 web-01 sudo: svc_backup : TTY=pts/2 ; PWD=/tmp ; USER=root ; COMMAND=/usr/bin/cat /etc/shadow
+Jul  6 10:04:26 web-01 sudo: svc_backup : TTY=pts/2 ; PWD=/tmp ; USER=root ; COMMAND=/usr/bin/su - root
+Jul  6 10:04:46 web-01 sudo: dave : user NOT in sudoers ; TTY=pts/3 ; PWD=/home/dave ; USER=root ; COMMAND=/bin/bash
+Jul  6 10:06:20 web-01 sshd[6149]: Accepted publickey for alice from 10.20.30.31 port 63893 ssh2: RSA SHA256:402ad7715c79ec17
+Jul  6 10:06:46 web-01 useradd[7811]: new user: name=sysadm1n, UID=1099, GID=1099, home=/home/sysadm1n, shell=/bin/bash
+Jul  6 10:06:54 web-01 usermod[7820]: add 'sysadm1n' to group 'sudo'
+Jul  6 10:10:59 web-01 sudo: bob : TTY=pts/0 ; PWD=/home/bob ; USER=root ; COMMAND=/usr/bin/apt update
+Jul  6 10:15:16 web-01 sshd[7827]: Accepted publickey for svc_backup from 10.20.30.27 port 57275 ssh2: RSA SHA256:0c493f768de487be
+Jul  6 10:18:10 web-01 sshd[4771]: Accepted publickey for bob from 10.20.30.32 port 62928 ssh2: RSA SHA256:d6309779aa43a272
+Jul  6 10:18:15 web-01 sshd[9465]: Failed password for bob from 10.20.30.32 port 42216 ssh2
+Jul  6 10:22:17 web-01 sudo: alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Jul  6 10:24:42 web-01 sshd[9815]: Accepted publickey for svc_backup from 10.20.30.14 port 51095 ssh2: RSA SHA256:29e29ebe9ad6ee8c
+Jul  6 10:28:21 web-01 sudo: bob : TTY=pts/0 ; PWD=/home/bob ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Jul  6 10:28:37 web-01 sshd[6942]: Accepted publickey for alice from 10.20.30.26 port 44604 ssh2: RSA SHA256:5eb4900087ee7e80
+Jul  6 10:33:31 web-01 sudo: bob : TTY=pts/0 ; PWD=/home/bob ; USER=root ; COMMAND=/usr/bin/journalctl -u nginx
+Jul  6 10:38:34 web-01 sshd[6177]: Accepted publickey for carol from 10.20.30.37 port 45974 ssh2: RSA SHA256:2f97910e49ce6431
+Jul  6 10:38:39 web-01 sshd[3324]: Failed password for carol from 10.20.30.37 port 57937 ssh2
+Jul  6 10:44:51 web-01 sshd[5413]: Accepted publickey for carol from 10.20.30.34 port 45543 ssh2: RSA SHA256:02c4d72af774f43d
+Jul  6 10:46:55 web-01 sudo: alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/apt update
+Jul  6 10:51:56 web-01 sshd[3356]: Accepted publickey for carol from 10.20.30.38 port 46699 ssh2: RSA SHA256:44744a44a26854b8
+Jul  6 11:01:05 web-01 sudo: bob : TTY=pts/0 ; PWD=/home/bob ; USER=root ; COMMAND=/usr/bin/apt update
+Jul  6 11:01:27 web-01 sshd[7112]: Accepted publickey for bob from 10.20.30.32 port 58224 ssh2: RSA SHA256:0dd929c1875b30ae
+Jul  6 11:07:36 web-01 sshd[8760]: Accepted publickey for bob from 10.20.30.33 port 44182 ssh2: RSA SHA256:e0a9865f415bffd0
+Jul  6 11:09:19 web-01 sudo: alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Jul  6 11:13:15 web-01 sudo: alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Jul  6 11:17:35 web-01 sshd[4475]: Accepted publickey for alice from 10.20.30.12 port 43903 ssh2: RSA SHA256:169851ffe2fd6acf
+Jul  6 11:22:53 web-01 sudo: alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Jul  6 11:23:12 web-01 sshd[5285]: Accepted publickey for svc_backup from 10.20.30.21 port 60543 ssh2: RSA SHA256:20229a62e5b1d225
+Jul  6 11:26:06 web-01 sudo: bob : TTY=pts/0 ; PWD=/home/bob ; USER=root ; COMMAND=/usr/bin/apt update
+Jul  6 11:29:15 web-01 sudo: bob : TTY=pts/0 ; PWD=/home/bob ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Jul  6 11:29:41 web-01 sshd[3981]: Accepted publickey for bob from 10.20.30.12 port 63797 ssh2: RSA SHA256:d22999cc8d07664b
+Jul  6 11:34:30 web-01 sshd[6965]: Accepted publickey for svc_backup from 10.20.30.20 port 64327 ssh2: RSA SHA256:e67fbab01442b47f
+Jul  6 11:43:09 web-01 sshd[5524]: Accepted publickey for svc_backup from 10.20.30.24 port 53382 ssh2: RSA SHA256:aa7d738ac6bc7700
+Jul  6 11:43:13 web-01 sudo: alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/journalctl -u nginx
+Jul  6 11:45:40 web-01 sshd[1246]: Accepted publickey for bob from 10.20.30.35 port 47278 ssh2: RSA SHA256:da55784d6da6f588
+Jul  6 11:47:09 web-01 sshd[8173]: Accepted publickey for svc_backup from 10.20.30.29 port 53121 ssh2: RSA SHA256:65e84b517940d2d4
+Jul  6 11:47:14 web-01 sshd[5030]: Failed password for svc_backup from 10.20.30.29 port 43815 ssh2
+Jul  6 11:52:37 web-01 sshd[6458]: Accepted publickey for carol from 10.20.30.39 port 48445 ssh2: RSA SHA256:c557d217bb0a2bfa
+Jul  6 11:54:37 web-01 sshd[7358]: Accepted publickey for dave from 10.20.30.28 port 41826 ssh2: RSA SHA256:84f26eda523f3ab5
+Jul  6 11:56:48 web-01 sudo: alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/apt update
+Jul  6 11:58:33 web-01 sshd[6603]: Accepted publickey for bob from 10.20.30.35 port 52301 ssh2: RSA SHA256:22bd168570c743cf
+Jul  6 12:03:10 web-01 sshd[3230]: Accepted publickey for carol from 10.20.30.16 port 51144 ssh2: RSA SHA256:4f216296d2ce6f8c
+Jul  6 12:06:28 web-01 sudo: alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Jul  6 12:11:15 web-01 sshd[8295]: Accepted publickey for alice from 10.20.30.23 port 46838 ssh2: RSA SHA256:417a38e0979d79c2
+Jul  6 12:17:35 web-01 sshd[5650]: Accepted publickey for carol from 10.20.30.31 port 59866 ssh2: RSA SHA256:166fe3e48273530c
+Jul  6 12:17:40 web-01 sshd[4934]: Failed password for carol from 10.20.30.31 port 61361 ssh2
+Jul  6 12:20:24 web-01 sshd[6392]: Accepted publickey for bob from 10.20.30.20 port 58936 ssh2: RSA SHA256:0fc3d6eef7a9b56e
+Jul  6 12:25:47 web-01 sshd[2475]: Accepted publickey for carol from 10.20.30.16 port 60761 ssh2: RSA SHA256:32e959b902061854
+Jul  6 12:25:52 web-01 sshd[3608]: Failed password for carol from 10.20.30.16 port 51525 ssh2
+Jul  6 12:30:27 web-01 sshd[5775]: Accepted publickey for alice from 10.20.30.31 port 54702 ssh2: RSA SHA256:c874c0299611c29c
+Jul  6 12:37:36 web-01 sshd[5951]: Accepted publickey for alice from 10.20.30.18 port 42076 ssh2: RSA SHA256:0bd0346662d1b2f0
+Jul  6 12:39:46 web-01 sshd[1064]: Accepted publickey for alice from 10.20.30.35 port 55824 ssh2: RSA SHA256:8ce76a1e432dca7c
+Jul  6 12:49:07 web-01 sshd[3615]: Accepted publickey for alice from 10.20.30.17 port 47947 ssh2: RSA SHA256:0750dc8a66cfde0c
+Jul  6 12:57:15 web-01 sshd[2767]: Accepted publickey for svc_backup from 10.20.30.23 port 53120 ssh2: RSA SHA256:ae2b5850e77a0b5b
+Jul  6 13:01:49 web-01 sshd[4139]: Accepted publickey for svc_backup from 10.20.30.25 port 49207 ssh2: RSA SHA256:5bdfba658f464f59
+Jul  6 13:04:58 web-01 sshd[1658]: Accepted publickey for bob from 10.20.30.28 port 52323 ssh2: RSA SHA256:bc994b2ee22f6118
+Jul  6 13:10:56 web-01 sshd[3036]: Accepted publickey for svc_backup from 10.20.30.16 port 50722 ssh2: RSA SHA256:e683a6ff14f2758e
+Jul  6 13:15:50 web-01 sshd[2901]: Accepted publickey for bob from 10.20.30.34 port 42505 ssh2: RSA SHA256:b5fa916838ed3558
+Jul  6 13:21:58 web-01 sshd[6220]: Accepted publickey for alice from 10.20.30.35 port 43612 ssh2: RSA SHA256:2855e792c74620d5
+Jul  6 13:30:50 web-01 sshd[2203]: Accepted publickey for carol from 10.20.30.14 port 55961 ssh2: RSA SHA256:0dfe30c3e9c69ad4
+Jul  6 13:35:42 web-01 sshd[1419]: Accepted publickey for carol from 10.20.30.36 port 40098 ssh2: RSA SHA256:910eba0899b27961
+Jul  6 13:35:47 web-01 sshd[1303]: Failed password for carol from 10.20.30.36 port 46253 ssh2
+Jul  6 13:38:21 web-01 sshd[5236]: Accepted publickey for alice from 10.20.30.27 port 48866 ssh2: RSA SHA256:4ef5eaea692744b0

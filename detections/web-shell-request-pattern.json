@@ -1,0 +1,50 @@
+{
+  "rule_id": "edl-004-web-shell",
+  "version": 1,
+  "name": "EDL-004 Web Shell Request Pattern",
+  "description": "Detects HTTP requests matching common web shell interaction patterns: requests to known shell filenames (c99, wso, shell.php) or PHP resources invoked with command-execution query parameters (cmd=, exec=, eval, base64). A 200 response to these patterns strongly suggests an implanted web shell.",
+  "author": ["elastic-detection-lab"],
+  "type": "query",
+  "language": "kuery",
+  "index": ["logs-edl.nginx*", "filebeat-*"],
+  "query": "event.dataset:nginx.access and (url.path:(*shell.php or *c99.php or *wso.php or *b374k*) or (url.path:*.php and url.query:(cmd\\=* or exec\\=* or *eval* or *base64*)))",
+  "severity": "critical",
+  "risk_score": 90,
+  "interval": "1m",
+  "from": "now-6h",
+  "to": "now",
+  "enabled": true,
+  "max_signals": 100,
+  "tags": ["Web", "Persistence", "elastic-detection-lab"],
+  "references": ["https://attack.mitre.org/techniques/T1505/003/"],
+  "false_positives": [
+    "Security scanners probing for web shells (expect 404s, not 200s).",
+    "Legitimate applications with 'cmd' or 'eval' parameter names."
+  ],
+  "threat": [
+    {
+      "framework": "MITRE ATT&CK",
+      "tactic": {
+        "id": "TA0003",
+        "name": "Persistence",
+        "reference": "https://attack.mitre.org/tactics/TA0003/"
+      },
+      "technique": [
+        {
+          "id": "T1505",
+          "name": "Server Software Component",
+          "reference": "https://attack.mitre.org/techniques/T1505/",
+          "subtechnique": [
+            {
+              "id": "T1505.003",
+              "name": "Web Shell",
+              "reference": "https://attack.mitre.org/techniques/T1505/003/"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "actions": [],
+  "exceptions_list": []
+}
