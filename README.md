@@ -82,11 +82,20 @@ alert with its severity rank and MITRE ATT&CK technique, and renders a `rich` ta
 
 ## Screenshots
 
-| Kibana Security → Alerts | Rule detail with ATT&CK mapping | Triage CLI |
-|---|---|---|
-| ![Alerts overview](docs/screenshots/alerts-overview.png) | ![Rule detail](docs/screenshots/rule-detail.png) | ![Triage CLI](docs/screenshots/triage-cli.png) |
+**Triage CLI** (`make alerts`):
 
-*(placeholders - drop your captures into `docs/screenshots/`)*
+![Triage CLI](docs/screenshots/triage-cli.png)
+
+**Kibana Security → Alerts** - severity breakdown and alert stream:
+
+![Alerts overview](docs/screenshots/alerts-overview.png)
+
+**Rule detail** - EQL definition and native MITRE ATT&CK mapping:
+
+![Rule detail](docs/screenshots/rule-detail.png)
+
+Regenerate them anytime with `.venv/bin/python scripts/capture_screenshots.py`
+(needs `pip install playwright && playwright install chromium` and a seeded stack).
 
 ## Detections
 
