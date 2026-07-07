@@ -130,6 +130,48 @@ def parse_windows() -> list[dict]:
     return docs
 
 
+def put_index_template(es: Elasticsearch) -> None:
+    """Explicit mappings for logs-edl.* so the detection rules work:
+    threshold rules aggregate on source.ip / user.name (must be keyword or
+    ip, not text) and EQL needs unambiguous keyword fields."""
+    es.indices.put_index_template(
+        name="logs-edl",
+        index_patterns=["logs-edl.*"],
+        template={
+            "mappings": {
+                "dynamic_templates": [
+                    {
+                        "strings_as_keyword": {
+                            "match_mapping_type": "string",
+                            "mapping": {"type": "keyword", "ignore_above": 1024},
+                        }
+                    }
+                ],
+                "properties": {
+                    "@timestamp": {"type": "date"},
+                    "message": {"type": "text"},
+                    "source": {
+                        "properties": {
+                            "ip": {"type": "ip"},
+                            "port": {"type": "long"},
+                        }
+                    },
+                    "http": {
+                        "properties": {
+                            "response": {
+                                "properties": {
+                                    "status_code": {"type": "long"},
+                                    "bytes": {"type": "long"},
+                                }
+                            }
+                        }
+                    },
+                },
+            }
+        },
+    )
+
+
 def rebase_timestamps(docs: list[dict]) -> None:
     """Shift all docs so the newest one lands a minute ago."""
     newest = max(d["@timestamp"] for d in docs)
@@ -151,6 +193,8 @@ def main() -> int:
         print(f"Cannot reach Elasticsearch at {args.es_url} - is the stack up?",
               file=sys.stderr)
         return 1
+
+    put_index_template(es)
 
     batches = {
         "logs-edl.auth": parse_auth(),

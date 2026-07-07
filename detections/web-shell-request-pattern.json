@@ -7,7 +7,7 @@
   "type": "query",
   "language": "kuery",
   "index": ["logs-edl.nginx*", "filebeat-*"],
-  "query": "event.dataset:nginx.access and (url.path:(*shell.php or *c99.php or *wso.php or *b374k*) or (url.path:*.php and url.query:(cmd\\=* or exec\\=* or *eval* or *base64*)))",
+  "query": "event.dataset:nginx.access and (url.path:(*shell.php or *c99.php or *wso.php or *b374k*) or (url.path:*.php and url.query:(cmd* or exec* or *eval* or *base64*)))",
   "severity": "critical",
   "risk_score": 90,
   "interval": "1m",

@@ -7,7 +7,7 @@
   "type": "query",
   "language": "kuery",
   "index": ["logs-edl.auth*", "filebeat-*"],
-  "query": "event.dataset:system.auth and event.action:sudo_command and ((user.name:svc_* and process.command_line:(\"/bin/bash\" or \"/bin/sh\" or *\\/etc\\/shadow* or *su\\ \\-\\ root*)) or event.outcome:failure)",
+  "query": "event.dataset:system.auth and event.action:sudo_command and ((user.name:svc_* and process.command_line:(\"/bin/bash\" or \"/bin/sh\" or *shadow* or \"/usr/bin/su - root\")) or event.outcome:failure)",
   "severity": "high",
   "risk_score": 73,
   "interval": "1m",
