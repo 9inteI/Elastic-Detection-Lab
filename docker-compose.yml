@@ -1,7 +1,7 @@
 ---
 # elastic-detection-lab
 # Single-node Elasticsearch + Kibana + Filebeat with security enabled.
-# Default credentials (lab use only!): elastic / changeme  — see README.md
+# Default credentials (lab use only!): elastic / changeme  - see README.md
 name: elastic-detection-lab
 
 services:

@@ -47,7 +47,7 @@ def fetch_alerts(es: Elasticsearch, since: str = "24h", size: int = 200) -> list
 
 def build_table(alerts: list[EnrichedAlert]) -> Table:
     table = Table(
-        title="🚨 Elastic Detection Lab — Alert Triage",
+        title="🚨 Elastic Detection Lab - Alert Triage",
         caption=f"{len(alerts)} open alert(s), sorted by severity",
         show_lines=False,
         header_style="bold cyan",
@@ -89,7 +89,7 @@ def main(argv: list[str] | None = None) -> int:
     es = Elasticsearch(args.es_url, basic_auth=(args.user, args.password),
                        request_timeout=30)
     if not es.ping():
-        console.print(f"[red]Cannot reach Elasticsearch at {args.es_url} — "
+        console.print(f"[red]Cannot reach Elasticsearch at {args.es_url} - "
                       f"is the stack up? (make up)[/red]")
         return 1
 

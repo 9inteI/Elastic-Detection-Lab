@@ -169,7 +169,7 @@ def gen_nginx_log() -> list[str]:
         lines.append(entry(t, WEBSHELL_IP, method, path, status, random.randint(200, 2000),
                            "python-requests/2.32.0"))
 
-    # ATTACK 5: data exfiltration — huge responses pulled to one external IP
+    # ATTACK 5: data exfiltration - huge responses pulled to one external IP
     t = BASE + timedelta(hours=4)
     for i in range(12):
         t += timedelta(seconds=random.randint(10, 30))
@@ -222,7 +222,7 @@ def gen_windows_log() -> list[dict]:
         if random.random() < 0.3:
             events.append(base_event(t + timedelta(minutes=20), 4634, "logged-off", user))
 
-    # ATTACK 2: impossible travel — alice logs in from Madrid, then Singapore 9 min later
+    # ATTACK 2: impossible travel - alice logs in from Madrid, then Singapore 9 min later
     t = BASE + timedelta(hours=1)
     events.append(
         base_event(t, 4624, "logged-in", "alice",

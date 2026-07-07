@@ -1,4 +1,4 @@
-"""alert_consumer — pull triggered alerts from Elastic Security and triage them."""
+"""alert_consumer - pull triggered alerts from Elastic Security and triage them."""
 
 from alert_consumer.enrich import enrich_alert, EnrichedAlert, MITRE_MAPPING
 

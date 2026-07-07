@@ -1,6 +1,6 @@
 # 🛡️ elastic-detection-lab
 
-**A self-contained detection engineering lab** — spin up a full Elastic Security stack with one
+**A self-contained detection engineering lab** - spin up a full Elastic Security stack with one
 command, seed it with realistic attack telemetry, import six detection-as-code rules, and triage
 the resulting alerts from a Python CLI.
 
@@ -45,10 +45,10 @@ flowchart LR
 
 Two ingestion paths on purpose: **Filebeat** ships the raw lines (`filebeat-*`, the classic
 pipeline), while **`seed.py`** indexes fully parsed [ECS](https://www.elastic.co/guide/en/ecs/current/index.html)
-documents (`logs-edl.*`) that the detection rules query — and rebases timestamps to "now" so the
+documents (`logs-edl.*`) that the detection rules query - and rebases timestamps to "now" so the
 rules always have fresh events to fire on.
 
-## Quick start — 3 commands
+## Quick start - 3 commands
 
 ```bash
 make up      # 1. start Elasticsearch + Kibana + Filebeat (first run pulls images)
@@ -69,7 +69,7 @@ Requirements: Docker (≥ 4 GB RAM allocated), Python 3.11+, `make`, `curl`.
 alert with its severity rank and MITRE ATT&CK technique, and renders a `rich` table:
 
 ```
-                    🚨 Elastic Detection Lab — Alert Triage
+                    🚨 Elastic Detection Lab - Alert Triage
 ┏━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━┳━━━━━━┓
 ┃ Severity ┃ Rule                      ┃ ATT&CK    ┃ Entity           ┃ Risk ┃
 ┡━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━╇━━━━━━┩
@@ -86,7 +86,7 @@ alert with its severity rank and MITRE ATT&CK technique, and renders a `rich` ta
 |---|---|---|
 | ![Alerts overview](docs/screenshots/alerts-overview.png) | ![Rule detail](docs/screenshots/rule-detail.png) | ![Triage CLI](docs/screenshots/triage-cli.png) |
 
-*(placeholders — drop your captures into `docs/screenshots/`)*
+*(placeholders - drop your captures into `docs/screenshots/`)*
 
 ## Detections
 
@@ -94,37 +94,37 @@ All six rules live in [`detections/`](detections/) as importable JSON (bundled t
 posted to Kibana's `_import` API by `scripts/load_rules.py`). Full ATT&CK table in
 [`MITRE_MAPPING.md`](MITRE_MAPPING.md).
 
-### EDL-001 · SSH Brute Force Attempts — `threshold` / KQL · **high**
+### EDL-001 · SSH Brute Force Attempts - `threshold` / KQL · **high**
 Counts failed SSH password events (`event.outcome:failure`) grouped by `source.ip`; fires at
 **≥ 10 failures** that also span **≥ 2 distinct usernames** (the cardinality clause suppresses a
 single user fat-fingering their own password). The sample data contains a 40-attempt spray from
-`203.0.113.66` cycling `root`/`admin`/`oracle`/…, followed by a successful login — the classic
+`203.0.113.66` cycling `root`/`admin`/`oracle`/…, followed by a successful login - the classic
 brute-force-then-compromise sequence.
 
-### EDL-002 · Impossible Travel Login — `new_terms` / KQL · **high**
+### EDL-002 · Impossible Travel Login - `new_terms` / KQL · **high**
 Uses Kibana's *new terms* rule type on the pair (`user.name`, `source.geo.country_name`): a
 successful login (event 4624) from a country **never seen for that user in the last 7 days**
 fires an alert. In the sample data `alice` logs in from Madrid and, nine minutes later, from
-Singapore — a pairing no amount of legitimate travel explains.
+Singapore - a pairing no amount of legitimate travel explains.
 
-### EDL-003 · Suspicious Sudo Privilege Escalation — `query` / KQL · **high**
+### EDL-003 · Suspicious Sudo Privilege Escalation - `query` / KQL · **high**
 Two behaviors in one rule: (a) **service accounts** (`svc_*`) using sudo to spawn interactive
-shells or read `/etc/shadow` — service accounts should only ever run their scripted commands —
+shells or read `/etc/shadow` - service accounts should only ever run their scripted commands -
 and (b) any `user NOT in sudoers` policy violation. The samples show a compromised `svc_backup`
 running `sudo /bin/bash` and `sudo cat /etc/shadow` right after the brute-force success.
 
-### EDL-004 · Web Shell Request Pattern — `query` / KQL · **critical**
+### EDL-004 · Web Shell Request Pattern - `query` / KQL · **critical**
 Matches requests to well-known shell filenames (`shell.php`, `c99.php`, `wso.php`, `b374k`) or
 any `.php` resource invoked with command-execution parameters (`cmd=`, `exec=`, `eval`,
 `base64`). The samples include a probe sequence ending with a live shell at
 `/uploads/avatar.php?cmd=cat+/etc/passwd` returning 200.
 
-### EDL-005 · Data Exfiltration via Unusual Outbound Volume — `threshold` / KQL · **high**
-Flags a single `source.ip` receiving **≥ 5 responses over 10 MB each** inside the rule window —
+### EDL-005 · Data Exfiltration via Unusual Outbound Volume - `threshold` / KQL · **high**
+Flags a single `source.ip` receiving **≥ 5 responses over 10 MB each** inside the rule window -
 sustained oversized transfers to one client are the signature of bulk export scraping. The
 samples show `198.51.100.99` pulling twelve 45–95 MB responses from `/api/v1/export`.
 
-### EDL-006 · New Admin Account Creation — `eql` sequence · **critical**
+### EDL-006 · New Admin Account Creation - `eql` sequence · **critical**
 EQL correlation: account creation (**4720**) followed within **15 minutes** by a member added to
 a security-enabled group (**4732**), joined on the same subject account. Create-then-elevate is a
 hallmark of attacker persistence; the samples show `svc_backup` creating `attacker_admin` and

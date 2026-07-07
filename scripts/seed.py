@@ -8,7 +8,7 @@ detection rules query:
   logs-edl.nginx    <- sample-logs/nginx-access.log
   logs-edl.windows  <- sample-logs/windows-security.json
 
-Timestamps in the samples are rebased so the newest event is "now" — this
+Timestamps in the samples are rebased so the newest event is "now" - this
 keeps the rules (which look back a few hours) firing no matter when you run
 the lab.
 
@@ -148,7 +148,7 @@ def main() -> int:
     es = Elasticsearch(args.es_url, basic_auth=(args.user, args.password),
                        request_timeout=60)
     if not es.ping():
-        print(f"Cannot reach Elasticsearch at {args.es_url} — is the stack up?",
+        print(f"Cannot reach Elasticsearch at {args.es_url} - is the stack up?",
               file=sys.stderr)
         return 1
 
